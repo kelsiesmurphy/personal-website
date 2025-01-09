@@ -1,14 +1,15 @@
 import type { Config } from "tailwindcss";
 import tailwindcssAnimate from "tailwindcss-animate";
+import defaultTheme from "tailwindcss/defaultTheme";
 
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    '../../packages/ui/src/components/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "../../packages/ui/src/components/**/*.{ts,tsx}",
+  ],
   theme: {
     container: {
       center: true,
@@ -18,6 +19,9 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        nord: ["Nord", ...defaultTheme.fontFamily.sans],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -65,7 +69,7 @@ const config = {
         },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
-          to: { height:"0" },
+          to: { height: "0" },
         },
       },
       animation: {

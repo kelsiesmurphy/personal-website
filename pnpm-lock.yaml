@@ -4,6 +4,18 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+catalogs:
+  default:
+    autoprefixer:
+      specifier: ^10.4.20
+      version: 10.4.20
+    postcss:
+      specifier: ^8.4.49
+      version: 8.4.49
+    tailwindcss:
+      specifier: ^3.4.13
+      version: 3.4.17
+
 importers:
 
   .:
@@ -23,18 +35,31 @@ importers:
 
   apps/www:
     dependencies:
+      '@astrojs/tailwind':
+        specifier: ^5.1.4
+        version: 5.1.4(astro@5.1.4(@types/node@22.10.2)(jiti@1.21.7)(rollup@4.30.1)(typescript@5.7.2)(yaml@2.6.1))(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.10.2)(typescript@5.7.2)))(ts-node@10.9.2(@types/node@22.10.2)(typescript@5.7.2))
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
+      '@repo/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       astro:
         specifier: ^5.1.4
         version: 5.1.4(@types/node@22.10.2)(jiti@1.21.7)(rollup@4.30.1)(typescript@5.7.2)(yaml@2.6.1)
-      ui:
-        specifier: workspace:*
-        version: link:../../packages/ui
+    devDependencies:
+      autoprefixer:
+        specifier: 'catalog:'
+        version: 10.4.20(postcss@8.4.49)
+      postcss:
+        specifier: 'catalog:'
+        version: 8.4.49
+      tailwindcss:
+        specifier: 'catalog:'
+        version: 3.4.17(ts-node@10.9.2(@types/node@22.10.2)(typescript@5.7.2))
 
   packages/eslint-config:
     devDependencies:
@@ -145,6 +170,12 @@ packages:
   '@astrojs/prism@3.2.0':
     resolution: {integrity: sha512-GilTHKGCW6HMq7y3BUv9Ac7GMe/MO9gi9GW62GzKtth0SwukCu/qp2wLiGpEujhY+VVhaG9v7kv/5vFzvf4NYw==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=22.0.0}
+
+  '@astrojs/tailwind@5.1.4':
+    resolution: {integrity: sha512-EJ3uoTZZr0RYwTrVS2HgYN0+VbXvg7h87AtwpD5OzqS3GyMwRmzfOwHfORTxoWGQRrY9k/Fi+Awk60kwpvRL5Q==}
+    peerDependencies:
+      astro: ^3.0.0 || ^4.0.0 || ^5.0.0
+      tailwindcss: ^3.0.24
 
   '@astrojs/telemetry@3.2.0':
     resolution: {integrity: sha512-wxhSKRfKugLwLlr4OFfcqovk+LIFtKwLyGPqMsv+9/ibqqnW3Gv7tBhtKEb0gAyUAC4G9BTVQeQahqnQAhd6IQ==}
@@ -4120,6 +4151,16 @@ snapshots:
   '@astrojs/prism@3.2.0':
     dependencies:
       prismjs: 1.29.0
+
+  '@astrojs/tailwind@5.1.4(astro@5.1.4(@types/node@22.10.2)(jiti@1.21.7)(rollup@4.30.1)(typescript@5.7.2)(yaml@2.6.1))(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.10.2)(typescript@5.7.2)))(ts-node@10.9.2(@types/node@22.10.2)(typescript@5.7.2))':
+    dependencies:
+      astro: 5.1.4(@types/node@22.10.2)(jiti@1.21.7)(rollup@4.30.1)(typescript@5.7.2)(yaml@2.6.1)
+      autoprefixer: 10.4.20(postcss@8.4.49)
+      postcss: 8.4.49
+      postcss-load-config: 4.0.2(postcss@8.4.49)(ts-node@10.9.2(@types/node@22.10.2)(typescript@5.7.2))
+      tailwindcss: 3.4.17(ts-node@10.9.2(@types/node@22.10.2)(typescript@5.7.2))
+    transitivePeerDependencies:
+      - ts-node
 
   '@astrojs/telemetry@3.2.0':
     dependencies:

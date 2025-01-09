@@ -9,14 +9,17 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.1.4",
+    "@astrojs/tailwind": "^5.1.4",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "ui": "workspace:*"
+    "@repo/ui": "workspace:*",
+    "astro": "^5.1.4"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "ui": "workspace:*"
+    "autoprefixer": "catalog:",
+    "postcss": "catalog:",
+    "tailwindcss": "catalog:"
   }
 }
