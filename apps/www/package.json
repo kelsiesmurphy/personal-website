@@ -9,11 +9,16 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/react": "^4.1.2",
     "@astrojs/tailwind": "^5.1.4",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@repo/ui": "workspace:*",
-    "astro": "^5.1.4"
+    "@types/react": "^19.0.4",
+    "@types/react-dom": "^19.0.2",
+    "astro": "^5.1.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
