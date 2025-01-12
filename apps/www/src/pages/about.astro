@@ -1,0 +1,56 @@
+---
+import AboutTimeline from "../components/react/about/AboutTimeline";
+import ProfileImage from "../components/react/about/ProfileImage";
+import YouTubeLink from "../components/react/about/YouTubeLink";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <div class="space-y-4 prose dark:prose-invert">
+    <div class="flex items-center justify-between h-28 flex-wrap gap-12">
+      <h1 class="font-nord font-bold text-2xl not-prose text-foreground">
+        About Me
+      </h1>
+      <ProfileImage client:load />
+    </div>
+    <h3>Projects</h3>
+    <p>
+      I absolutely love building projects, which you can see on my <a
+        class="outline-brand"
+        target="_blank"
+        href="https://github.com/kelsiesmurphy">GitHub</a
+      >. These projects allow me to experiment with different technologies in
+      real scenarios, which is my preferred way of learning.
+    </p>
+    <h3>Talks</h3>
+    <p>
+      I regularly attend networking events in Glasgow, particularly ones with a
+      focus on frontend development such as <a
+        class="outline-brand"
+        target="_blank"
+        href="https://www.glasgowjs.com/">GlasgowJS</a
+      >, and ones that relate to sustainability, such as <a
+        class="outline-brand"
+        target="_blank"
+        href="https://small99.co.uk/people-planet-pint-meetup/"
+        >People Planet Pint</a
+      >. I have recently done talks at both, which you can check out below if
+      you feel like it!
+    </p>
+    <div class="flex gap-4 flex-wrap">
+      <YouTubeLink
+        client:load
+        title="People, Planet, Pint"
+        image="/about/ppp-edinburgh.jpg"
+        link="https://www.youtube.com/live/ECRr05TID58?si=zQUawkxKOnfdYUQ4&t=2464"
+      />
+      <YouTubeLink
+        client:load
+        title="GlasgowJS"
+        image="/about/glasgowjs.jpg"
+        link="https://www.youtube.com/live/F1OC1KssCv4?si=8rM4R9oI9ENAkfdd&t=3266"
+      />
+    </div>
+    <AboutTimeline client:load />
+  </div>
+</Layout>

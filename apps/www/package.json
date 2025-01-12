@@ -9,14 +9,18 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/mdx": "^4.0.5",
     "@astrojs/react": "^4.1.2",
     "@astrojs/tailwind": "^5.1.4",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@repo/ui": "workspace:*",
+    "@studio-freight/lenis": "^1.0.42",
     "@types/react": "^19.0.4",
     "@types/react-dom": "^19.0.2",
     "astro": "^5.1.4",
+    "astro-lenis": "^1.0.0",
+    "lenis": "^1.1.19",
     "lucide-react": "catalog:",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

@@ -3,7 +3,7 @@ import { Button } from "@repo/ui/components/ui/button";
 export default function Navigation() {
   const navList = [
     { label: "home", href: "/" },
-    { label: "writing", href: "/writing" },
+    { label: "about", href: "/about" },
   ];
 
   return (

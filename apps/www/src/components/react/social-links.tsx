@@ -37,7 +37,7 @@ export default function SocialLinks() {
 
   return (
     <nav>
-      <ul className="flex gap-2 pt-4 flex-wrap">
+      <ul className="flex gap-2 pt-8 flex-wrap">
         {socialList.map((socialItem) => (
           <li key={socialItem.label}>
             <Button variant="link" className="px-2" asChild>

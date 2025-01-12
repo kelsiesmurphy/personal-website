@@ -9,6 +9,7 @@
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "@tailwindcss/typography": "^0.5.16",
     "@turbo/gen": "^2.3.3",
     "@types/eslint": "^9.6.1",
     "@types/node": "^22.10.2",
