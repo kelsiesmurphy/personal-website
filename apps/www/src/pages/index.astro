@@ -1,12 +1,18 @@
 ---
+import Name from "../components/react/name";
 import SocialLinks from "../components/react/social-links";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
   <div class="space-y-4">
-    <div class="flex items-center justify-between h-28 flex-wrap gap-12">
-      <h1 class="font-nord font-bold text-2xl">Kelsie Murphy</h1>
+    <div class="hidden sm:flex items-center justify-between h-28 flex-wrap gap-12">
+      <Name client:load />
+    </div>
+    <div class="flex sm:hidden items-center justify-between h-28 flex-wrap gap-12">
+      <h1 class="font-nord font-bold text-2xl not-prose text-foreground">
+        Kelsie Murphy
+      </h1>
     </div>
     <p>
       I'm interested in creating sustainable and accessible digital experiences.

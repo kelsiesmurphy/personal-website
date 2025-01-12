@@ -73,3 +73,14 @@
     @apply ring-offset-background focus-visible:rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
   }
 }
+
+/* Footer */
+.introLine {
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+}
+
+.introLine p {
+  margin: 0px;
+}
