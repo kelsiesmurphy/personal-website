@@ -1,13 +1,17 @@
 ---
-import { Button } from "@repo/ui/components/ui/button"
-import { Badge } from "@repo/ui/components/ui/badge"
+import Navigation from "./react/navigation"
+import SocialLinks from "./react/social-links"
 ---
 
 <main class="flex justify-center p-6">
-	<section class="flex-1 max-w-xl">
-		<p class="font-nord">Kelsie</p>
-		<Button size="lg">Hello</Button>
-		<Badge>Badge</Badge>
+	<section class="flex-1 max-w-xl space-y-16">
+		<Navigation />
+		<div class="space-y-4">
+			<h1 class="font-nord font-bold text-2xl pb-8">Kelsie MURPHY</h1>
+			<p>I'm interested in creating sustainable and accessible digital experiences. Currently, I'm building web applications for a global energy company as a software engineer consultant at <a class="hover:underline outline-brand" href="https://www.bjss.com/" target="_blank">BJSS</a>.</p>
+			<p>Previously, I studied music education at the University of Aberdeen, before studying at Codeclan in 2023. I volunteered with Scottish Tech Army to build features for the <a class="hover:underline outline-brand" href="https://apps.apple.com/us/app/sta-volunteers/id1632619020" target="_blank">'STA Volunteers'</a> mobile application.</p>
+			<SocialLinks client:only />
+		</div>
 	</section>
 </main>
 
