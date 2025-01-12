@@ -1,0 +1,152 @@
+/* Thin (100) */
+@font-face {
+  font-family: "Nord";
+  src:
+    url("/fonts/otf/nord-thin.otf") format("opentype"),
+    url("/fonts/ttf/nord-thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nord";
+  src:
+    url("/fonts/otf/nord-thinitalic.otf") format("opentype"),
+    url("/fonts/ttf/nord-thinitalic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+}
+
+/* Extra Light (200) */
+@font-face {
+  font-family: "Nord";
+  src:
+    url("/fonts/otf/nord-light.otf") format("opentype"),
+    url("/fonts/ttf/nord-light.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nord";
+  src:
+    url("/fonts/otf/nord-lightitalic.otf") format("opentype"),
+    url("/fonts/ttf/nord-lightitalic.ttf") format("truetype");
+  font-weight: 200;
+  font-style: italic;
+}
+
+/* Regular/Normal (400) */
+@font-face {
+  font-family: "Nord";
+  src:
+    url("/fonts/otf/nord-regular.otf") format("opentype"),
+    url("/fonts/ttf/nord-regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nord";
+  src:
+    url("/fonts/otf/nord-italic.otf") format("opentype"),
+    url("/fonts/ttf/nord-italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Medium (500) */
+@font-face {
+  font-family: "Nord";
+  src:
+    url("/fonts/otf/nord-medium.otf") format("opentype"),
+    url("/fonts/ttf/nord-medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nord";
+  src:
+    url("/fonts/otf/nord-mediumitalic.otf") format("opentype"),
+    url("/fonts/ttf/nord-mediumitalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* Semi Bold (600) */
+@font-face {
+  font-family: "Nord";
+  src:
+    url("/fonts/otf/nord-book.otf") format("opentype"),
+    url("/fonts/ttf/nord-book.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nord";
+  src:
+    url("/fonts/otf/nord-bookitalic.otf") format("opentype"),
+    url("/fonts/ttf/nord-bookitalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* Bold (700) */
+@font-face {
+  font-family: "Nord";
+  src:
+    url("/fonts/otf/nord-bold.otf") format("opentype"),
+    url("/fonts/ttf/nord-bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nord";
+  src:
+    url("/fonts/otf/nord-bolditalic.otf") format("opentype"),
+    url("/fonts/ttf/nord-bolditalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* Extra Bold (800) */
+/* Not directly mapped; using black instead */
+@font-face {
+  font-family: "Nord";
+  src:
+    url("/fonts/otf/nord-black.otf") format("opentype"),
+    url("/fonts/ttf/nord-black.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nord";
+  src:
+    url("/fonts/otf/nord-blackitalic.otf") format("opentype"),
+    url("/fonts/ttf/nord-blackitalic.ttf") format("truetype");
+  font-weight: 800;
+  font-style: italic;
+}
+
+/* Black (900) */
+@font-face {
+  font-family: "Nord";
+  src:
+    url("/fonts/otf/nord-black.otf") format("opentype"),
+    url("/fonts/ttf/nord-black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nord";
+  src:
+    url("/fonts/otf/nord-blackitalic.otf") format("opentype"),
+    url("/fonts/ttf/nord-blackitalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+}

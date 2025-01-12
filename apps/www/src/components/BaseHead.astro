@@ -10,6 +10,8 @@ interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const { title, description, image = "/kelsie-murphy.jpg" } = Astro.props;
+
+import Fonts from "../styles/fonts.css";
 ---
 
 <script is:inline>
