@@ -2,7 +2,6 @@ import { Button } from "@repo/ui/components/ui/button";
 import AnimatedIcon from "./animated-icon";
 import linkedin from "react-useanimations/lib/linkedin";
 import github from "react-useanimations/lib/github";
-import arrowup from "react-useanimations/lib/arrowup";
 import type { Animation } from "react-useanimations/utils";
 import BlueskyIcon from "./bluesky-icon";
 import RSSIcon from "./rss-icon";
