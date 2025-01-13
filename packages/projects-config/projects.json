@@ -1,0 +1,17 @@
+[
+    {
+      "name": "Earth",
+      "slug": "earth",
+      "description": "A 3D Earth built with ThreeJS",
+      "repo": "https://github.com/kelsiesmurphy/projects/earth",
+      "url": "/projects/earth"
+    },
+    {
+      "name": "Other Project",
+      "slug": "project2",
+      "description": "Another cool project",
+      "repo": "https://github.com/kelsiesmurphy/projects/project2",
+      "url": "/projects/project2"
+    }
+  ]
+  
