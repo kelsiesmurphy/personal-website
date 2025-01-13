@@ -6,8 +6,6 @@ published: false
 color: '#F06318'
 ---
 
-import EarthCanvas from "@/components/react/Projects/Earth";
-
 Today I'm going to write about how I built my personal website (this website!) using a combination of [Astro](https://astro.build/), [Framer Motion](https://www.framer.com/motion/), [GSAP](https://greensock.com/gsap/), and [ThreeJS](https://threejs.org/). I’ll also touch on I integrated this blog, written in markdown. If you're looking for any ideas to integrate into your own personal website, there might be something in here that may help you!
 
 ### Table of Contents
@@ -85,9 +83,9 @@ I began the project by setting up Astro, which if you want, you can do [from scr
 
 The part of the website I probably spent the most time on was the earth element that rotates when you scroll past it.
 
-<section class="bg-[#24292e] h-96 rounded-lg flex items-center justify-center">
+{/* <section class="bg-[#24292e] h-96 rounded-lg flex items-center justify-center">
   <EarthCanvas client:only />
-</section>
+</section> */}
 
 It started out as a sphere in ThreeJS, adding a light source and camera, but after [borrowing some nice shaders and textures](https://threejs.org/examples/webgpu_tsl_earth.html) and experimenting for a while, it ended up as you can see on the [homepage](/), behind the projects section. I really enjoy working with ThreeJS, and I will likely tweak this over time.
 
