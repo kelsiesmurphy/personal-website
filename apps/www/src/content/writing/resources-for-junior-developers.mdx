@@ -1,0 +1,168 @@
+---
+title: 'Resources for Junior Developers'
+description: 'If you are a junior developer, you might find some of these tools quite helpful!'
+pubDate: 'Oct 26 2024'
+published: false
+color: '#F0183C'
+---
+
+This year I have been diving into different frontend technologies whilst building different projects for personal and professional use, even including this portfolio website. I thought it might be useful to some out there to do a roundup of my top 10 favourites (in no particular order), why I started using it, and what sorts of projects i might use it on.
+
+## Table of Contents
+
+1. [Astro](#1-astro)
+2. [Sveltekit](#2-sveltekit)
+3. [Netlify](#3-netlify)
+4. [ThreeJS](#4-threejs)
+5. [Framer Motion](#5-framer-motion)
+6. [GSAP](#6-gsap)
+7. [Tailwind CSS](#7-tailwind-css)
+8. [ShadcnUI](#8-shadcnui)
+9. [Expo](#9-expo-for-react-native)
+10. [Plasmo](#10-plasmo)
+
+---
+
+## 1. Astro
+
+[Astro](https://astro.build/) is a web framework for websites that are primarily content-driven. It is server-first and fast, and my favourite feature is that it allows you to support components from other frameworks, such as Sveltekit, Vue or React. These reasons are why I chose it to be the basis for this portfolio website. I am able to have a fast blog and project pages, whilst being able to include components built in Sveltekit, or React/NextJS.
+
+### Why I Love It:
+- **Incredible Performance**: Sites built with Astro are really fast, and scored well in my web sustainability testing I did earlier in the year.
+- **Component Flexibility**: Supports using components from multiple frameworks (React, Vue, Svelte).
+- **Easy Markdown Integration**: Great for setting up blogs or documentation quickly using MDX and the TailwindCSS/Typography plugin.
+
+### Notable Use Cases:
+- Personal website (like this one!), portfolio projects, and blogs with minimal client-side JavaScript.
+
+---
+
+## 2. SvelteKit
+
+[Svelte](https://kit.svelte.dev/) is a really awesome framework for building, and I see myself using it even more in 2025. I have used it for multiple small personal projects, it integrates with Vite really well, and their [tutorial part of their website](https://learn.svelte.dev/tutorial/introducing-sveltekit) gets you up and running really quickly. There is a super useful [port of ShadcnUI built by Huntabyte](https://www.shadcn-svelte.com/) that made the project development even easier. Only downside I was able to find with it is you're not able to take advantage of the huge React ecosystem.
+
+### Why I Love It:
+- **Clarity**: Allows you to visualise Server-Side Rendering versus Client-Side Rendering in a much easier way compared to other frameworks in my opinion
+- **Minimalistic**: It's easy to get set up, is fast and lightweight, feels very minimal compared to frameworks like NextJS.
+- **Simple and Intuitive**: Great syntax that simplifies complex interactions, with a [fantastic tutorial process](https://learn.svelte.dev/tutorial/introducing-sveltekit).
+
+### Notable Use Cases:
+- Lightweight web applications, single-page applications (SPAs), but it can probably do just about project I would attempt.
+
+
+---
+
+## 3. Netlify
+
+[Netlify](https://www.netlify.com/) has become my favorite hosting platform for hosting my personal projects and portfolio website. It is super easy to use, and even more importantly, uses Amazon Web Services, which runs on green energy, and comes back as being hosted green from the [Green Web Check](https://www.thegreenwebfoundation.org/).
+
+### Why I Love It:
+- **Setting up a domain is easy**: All my domains have been purchased at various points in time, from various providers, and it was still smooth to set up.
+- **Continuous Deployment**: I set it up to easily deploy when I push my changes to my main branch, making continuous deployment much easier.
+
+### Notable Use Cases:
+- Personal projects, portfolios are what I have used it for.
+
+---
+
+## 4. ThreeJS
+
+[ThreeJS](https://threejs.org/) is a tool for adding 3D elements to the web, one that I am still learning. I've experimented with it quite a bit after going through the [Three.JS Journey course](https://threejs-journey.com/) by Bruno Simon, after seeing [his own website](https://bruno-simon.com/) and absolutely loving it. Another beautiful website I recommend checking out is one of Bruno's projects, [Chartogne-Taillet](https://chartogne-taillet.com/en). On the homepage of this website, the earth that turns into view behind the projects is a 3D earth, that I write about in more detail in the blog post [Fun with ThreeJS](https://kelsiesmurphy.com/blog/fun-with-three-js/).
+
+### Why I Love It:
+- **WebGL Simplification**: Makes it much easier to work with WebGL for 3D graphics in the browser.
+- **Rich Ecosystem**: Tons of examples, extensions, and a helpful community.
+- **Performance**: When optimized correctly, ThreeJS scenes run smoothly on mobile as well.
+
+### Notable Use Cases:
+- 3D product showcases, immersive landing pages, data visualizations.
+
+---
+
+## 5. Framer Motion
+
+[Framer Motion](https://www.framer.com/motion/) is a tool I only started learning about for this portfolio site, but I plan to continue learning about it, as it was really fun to work with for the various animations across this website.
+
+### Why I Love It:
+- **Simple API**: Intuitive API that makes creating animations much easier.
+- **Highly Performant**: Framer Motion optimizes animations to run smoothly across devices.
+- **Integration with React**: It’s designed for React, making it simple to integrate with components.
+
+### Notable Use Cases:
+- Page transitions, micro-interactions, and scroll-triggered animations.
+
+--- 
+
+## 6. GSAP
+
+The [GreenSock Animation Platform (GSAP)](https://greensock.com/gsap/) is another animation powerhouse that I have only just started to use for more complex animations, especially involving 3D elements or intricate timelines. I'll happily admit that I leaned heavily on work from others, such as [Olivier Lacrose](https://www.olivierlarose.com/), but in future I aim to get to know this platform in more detail to do some really unique animations, it's really powerful and i'm sure i've only scratched the surface!
+
+### Why I Love It:
+- **Powerful Timelines**: Offers full control over the timing and sequencing of animations.
+- **Cross-browser Support**: Ensures animations work across all browsers.
+- **ScrollTrigger**: One of the best tools for scroll-based animations.
+
+### Notable Use Cases:
+- Complex interactive websites, funky animations and 3D animations with ThreeJS.
+
+---
+
+## 7. Tailwind CSS
+
+[Tailwind CSS](https://tailwindcss.com/) is a utility-first CSS framework that I use in almost every personal project. It reduces the need for writing custom CSS and keeps styles consistent across projects. As long as you have a solid baseline for CSS, you can really appreciate the speed boost that TailwindCSS gives you, plus it has some really useful plugins, such as [TailwindCSS/Typography](https://v1.tailwindcss.com/docs/typography-plugin). Used with ShadcnUI, it's a powerhouse! When designing my personal projects in Figma, I use [UntitledUI](https://www.untitledui.com/) quite a lot, and this works really well to iterate into Tailwind classes.
+
+### Why I Love It:
+- **Rapid Prototyping**: Quickly style components without switching between files.
+- **Customizable**: Easy to extend and customize to match any design system.
+- **Small Bundle Size**: Purges unused CSS to keep the final bundle size minimal.
+
+### Notable Use Cases:
+- Web applications, prototypes, design systems.
+
+---
+
+## 8. ShadcnUI
+
+[ShadcnUI](https://ui.shadcn.com/) has been mentioned several times in this blog post alone, and for good reason, I have been using it in almost every personal project this year. It's a wonderful set of re-usable components that is completely customisable, doesn't need to be installed as a NPM dependency, and the documentation is incredible. They recently added Charts (built using Recharts), and I love using them compared to other chart libraries. Some examples on this site from Shadcn include the mobile navigation window (a drawer from Shadcn), or the light mode/dark mode dropdown on non-mobile devices, come straight from Shadcn.
+
+### Why I Love It:
+- **Super easy theming changes**: The themes tab in the shadcn docs shows the capabilities of this really well, and I actually integrated a version of this theme changing into my  CommunitySpot project.
+- **Amazing documentation**: I have the shadcn docs always at hand when building projects, and i'm constantly referring to them.
+- **Regular updates**: I get excited each month when I see new updates in the ShadcnUI changelog!
+- **Great integration with forms**: For forms on your website, it integrates well with Zod to make well designed HTML forms.
+
+### Notable Use Cases:
+- I would use it for everything if I could, but it is particularly useful to get a component library up and running in your project quickly.
+
+---
+
+## 9. Expo (React Native)
+
+[Expo](https://expo.dev/) is a great ecosystem for React Native projects. It allows you to build universal native apps for Android, iOS and the web, with some great features, such as EAS for deploying smoothly, and a really nice QR code system and mobile apps for viewing your changes natively on devices. All of this using Javascript, which is cool (may be a controversial point depending on who you speak to). We used this for building a small app for a charity through BJSS and the Scottish Tech Army.
+
+### Why I Love It:
+- **File-based routing and Typescript compatible**: If you are familiar with NextJS, you would get the hang of this quite quickly.
+- **Submitting to app stores is easier**: Expo and EAS handle this really well.
+- **Compatible with various SDKs and libraries**: We never ran into any massive blockers in our development process. We did find out however, that making google maps accessible is pretty difficult.
+
+### Notable Use Cases:
+- MVPs for mobile apps, and small non-complex applications that are to be universal across mobile and web.
+
+---
+
+## 10. Plasmo
+
+[Plasmo](https://www.plasmo.com/) is a NextJS style framework for making browser extensions. Using it I was able to fairly quickly iterate and build my GreenCheck browser extension for Chromium, Firefox and Edge exactly how I envisaged it, with minimal complications.
+
+### Why I Love It:
+- **Well thought out features for web devs**: Supports React components, and creates a shadow-DOM so styles don't leak into the page you are extending.
+- **Solid community**: I got help with multiple questions from it's Discord community and documentation.
+
+### Notable Use Cases:
+- Building browser extensions that work across multiple browsers.
+
+---
+
+## Conclusion
+
+I hope you learned about a new technology above, or maybe found a new resource from my links that will benefit you. If you have any technologies that you think I would enjoy, connect with me on social media or email me at [kelsie@kelsiesmurphy.com](mailto:kelsie@kelsiesmurphy.com) and i'll check them out! Thanks for reading!

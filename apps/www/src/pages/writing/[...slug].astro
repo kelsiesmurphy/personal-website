@@ -1,0 +1,39 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import FormattedDate from "../../components/FormattedDate.astro";
+
+export async function getStaticPaths() {
+  const writing = await getCollection("writing");
+  return writing.map((writingItem: { slug: any }) => ({
+    params: { slug: writingItem.slug },
+    props: writingItem,
+  }));
+}
+type Props = CollectionEntry<"writing">;
+
+const writing = Astro.props;
+const { Content } = await writing.render();
+---
+
+<Layout>
+  <article class="prose">
+    <div>
+      {
+        writing.data.pubDate && (
+          <FormattedDate date={new Date(writing.data.pubDate)} />
+        )
+      }
+      {
+        writing.data.updatedDate && (
+          <div>
+            Last updated on{" "}
+            <FormattedDate date={new Date(writing.data.updatedDate)} />
+          </div>
+        )
+      }
+      <h1 class="font-nord text-2xl sm:text-3xl">{writing.data.pubDate && writing.data.title}</h1>
+    </div>
+    <Content />
+  </article>
+</Layout>

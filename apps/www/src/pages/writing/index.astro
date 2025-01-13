@@ -1,0 +1,56 @@
+---
+import { getCollection } from "astro:content";
+import WritingList from "../../components/react/writing/writing-list";
+import Layout from "../../layouts/Layout.astro";
+
+const writing = (await getCollection("writing"))
+  .filter(
+    (writingItem: { data: { published: any } }) => writingItem.data.published
+  )
+  .sort(
+    (
+      a: { data: { pubDate: { valueOf: () => any } } },
+      b: { data: { pubDate: { valueOf: () => any } } }
+    ) => {
+      const aDate = a.data.pubDate ? a.data.pubDate.valueOf() : 0;
+      const bDate = b.data.pubDate ? b.data.pubDate.valueOf() : 0;
+      return bDate - aDate;
+    }
+  );
+
+const formatDate = (dateString: string) => {
+  const date = new Date(dateString);
+  return new Intl.DateTimeFormat("en-GB", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  }).format(date);
+};
+---
+
+<Layout>
+  <div class="space-y-4">
+    <div class="flex items-center justify-between h-28 flex-wrap gap-12">
+      <h1 class="font-nord font-bold text-2xl text-foreground">Writing</h1>
+    </div>
+    <ul class="space-y-6">
+      {
+        writing.map((writingItem: any) => {
+          return (
+            <li>
+              <a
+                href={`/writing/${writingItem.slug}/`}
+                class="flex justify-between items-center gap-6"
+              >
+                <p class="">{writingItem.data.title}</p>
+                <p class="text-muted-foreground text-sm">
+                  {formatDate(writingItem.data.pubDate)}
+                </p>
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+</Layout>

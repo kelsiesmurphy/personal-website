@@ -1,0 +1,126 @@
+---
+title: 'How I built my portfolio website'
+description: 'In this blog post I explain the process to building this portfolio website, from the decisions about the tech stack, to the approach I took.'
+pubDate: 'October 13 2024'
+published: false
+color: '#F06318'
+---
+
+import EarthCanvas from "@/components/react/Projects/Earth";
+
+Today I'm going to write about how I built my personal website (this website!) using a combination of [Astro](https://astro.build/), [Framer Motion](https://www.framer.com/motion/), [GSAP](https://greensock.com/gsap/), and [ThreeJS](https://threejs.org/). I’ll also touch on I integrated this blog, written in markdown. If you're looking for any ideas to integrate into your own personal website, there might be something in here that may help you!
+
+### Table of Contents
+
+1. [Project Overview](#project-overview)
+2. [Why I Chose These Technologies](#why-i-chose-these-technologies)
+3. [Setting Up Astro](#setting-up-astro)
+4. [Adding a 3D Element with ThreeJS](#adding-3d-elements-with-threejs)
+5. [Setting Up a Markdown Blog](#setting-up-a-markdown-blog)
+6. [Challenges and Lessons Learned](#challenges-and-lessons-learned)
+7. [Conclusion](#conclusion)
+
+---
+
+### Project Overview
+
+Before diving into the code, let me give you an overview of what I wanted to achieve. My goal was to create a portfolio that could show off my work in a creative and fun way. I also wanted to have a blog section to share my thoughts on various web technologies (good for SEO too eh?).
+
+I decided to use the following stack:
+- **Astro** for static site generation.
+- **TailwindCSS** for styling.
+- **ThreeJS** for the earth component on the homepage.
+- **GSAP** and **Framer Motion** for smooth, funky animations.
+- **Markdown** for easy blog content creation.
+
+---
+
+### Why I Chose These Technologies
+
+#### Astro
+Astro's is fast, SEO friendly and really easy to set up. I was inspired by [Jamie McHale](https://www.jamiemchale.com/), who runs my [local Javascript meetup group](https://www.glasgowjs.com/), to try out Astro, and love that I can drop in my own React and Svelte components directly into the code. I think it was an ideal pick for this website. To style the website, I used TailwindCSS, as I enjoy using it and can build out frontend elements quite quickly with it.
+
+#### ThreeJS
+I really wanted to have some cool interactive elements on the homepage, and had recently completed the [Three.js Journey](https://threejs-journey.com/) course, and was inspired to add an element of the Earth which would spin around. Later I decided to add this as a backdrop to my projects section, which would spin in a subtle way as the user scrolls down the page.
+
+#### GSAP and Framer Motion
+I am not yet an expert on either of these technologies, but I hope to use them in projects in the future, and drew inspiration from [Olivier Larose's blog](https://blog.olivierlarose.com/) for elements on the site.
+
+#### Markdown
+I enjoy using [Obsidian](https://obsidian.md/) for note-taking, and i'm already used to writing in markdown, so this seemed like a good way to write my blog posts. I took advantage of Astro, MDX for markdown and the Typography plugin for TailwindCSS to create a blog post system that lets me add React or Svelte components directly into the blog posts, as you'll see later in this blog.
+
+---
+
+### Setting Up Astro
+
+I began the project by setting up Astro, which if you want, you can do [from scratch](https://docs.astro.build/en/getting-started/), or use a [pre-built theme as a template](https://astro.build/themes/). I was actually using Deno v2 to set up my website, as it had just been announced and I was curious to try it, but that might be a blog post for another day. This meant I skipped installing a linter, or Prettier, as these came built in with Deno v2. I also installed TailwindCSS and ShadcnUI at this stage.
+
+1. **Installing Astro from scratch**:
+    ```bash
+    npm create astro@latest
+    ```
+
+3. **Folder Structure**:
+    Astro encourages a clean folder structure. Here’s how I organised mine:
+    ```
+    /public
+    /src
+      /components
+        /react
+        /ui
+      /content
+        /blog
+        /project
+      /layouts
+      /lib
+      /pages
+        /blog
+        /projects
+      /styles
+    ```
+
+---
+
+### Adding 3D Elements with ThreeJS
+
+The part of the website I probably spent the most time on was the earth element that rotates when you scroll past it.
+
+<section class="bg-[#24292e] h-96 rounded-lg flex items-center justify-center">
+  <EarthCanvas client:only />
+</section>
+
+It started out as a sphere in ThreeJS, adding a light source and camera, but after [borrowing some nice shaders and textures](https://threejs.org/examples/webgpu_tsl_earth.html) and experimenting for a while, it ended up as you can see on the [homepage](/), behind the projects section. I really enjoy working with ThreeJS, and I will likely tweak this over time.
+
+---
+
+### Setting Up a Markdown Blog
+
+For the blog section, I wanted a simple setup where I could write posts in Markdown. This is really simple to set up in Astro
+
+1. **Creating Markdown Files**: As shown in the folder structure section earlier, each blog post is a MDX file located in the `/src/content/blog` folder. Here’s an example post structure:
+    ```
+    /blog
+      /my-first-post.mdx
+    ```
+
+    A [MDX](https://mdxjs.com/) file is basically a markdown file, but it allows you to import jsx components into your markdown file. I actually did it above with the Earth example! It's perfect for me, as I predicted I would occasionally be showing components within my blog posts, whilst also keeping the simplicity of markdown for a personal blog.
+
+2. **Frontmatter**: Each Markdown file contains frontmatter to define the metadata (title, date, etc.). This allows me to have a published flag and even a specific colour for each blog post for the fun hover effect on the [blog list](/blog).
+
+
+3. **Rendering Markdown in Astro**: I have a layout file, BlogPost.astro, that formats the layout of the page, with the navigation bar and any other shared components, but then it's just pulling in the blog from it's Astro collection using the slug param in the URL, and rendering the blog post.
+
+---
+
+### Challenges and Lessons Learned
+
+Building the website came with a few challenges:
+- **Sustainability**: Previous versions of my portfolio have been extremely minimal, with a complete focus on web sustainability. I made additional compromises this time round to showcase some fun tools i've been working with, such as the ThreeJS globe and the fun animations. I have still ensured the website runs on green energy, hosted with Netlify, and in my testing using [websitecarbon.com](https://kelsiesmurphy.com/), my website still performed better than 98% of websites with only 0.2g of carbon produced per page load, so it could be worse.
+- **GSAP and Framer Motion**: As mentioned, I had little experience with web animations before starting on this portfolio. Olivier Larose's blog was immensely helpful, as was the rest of Google, but I plan to spend some time gaining a deeper understanding of the intricacies of web animation using GSAP and Framer Motion. (down the rabbit hole I go!)
+- **General Design**: Anyone who knows me knows that whilst I design my own projects and websites, I do have a specific style, usually minimal, closely adhering to TailwindCSS, ShadcnUI and UntitledUI design principles, but I intentionally moved (mostly) away from that for this portfolio project, which was fun, albiet challenging!
+
+---
+
+### Conclusion
+
+Overall, I had a lot of fun building this website, and highly recommend to others that if you're interested in frontend development, spend some time having fun with your personal website! If anyone wants to chat, to roast my site or otherwise, contact me on [LinkedIn](https://www.linkedin.com/in/kelsiesmurphy/) or email at [kelsie@kelsiesmurphy.com](mailto:kelsie@kelsiesmurphy.com)
