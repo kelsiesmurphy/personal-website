@@ -2,8 +2,10 @@ import { Button } from "@repo/ui/components/ui/button";
 import AnimatedIcon from "./animated-icon";
 import linkedin from "react-useanimations/lib/linkedin";
 import github from "react-useanimations/lib/github";
+import arrowup from "react-useanimations/lib/arrowup";
 import type { Animation } from "react-useanimations/utils";
 import BlueskyIcon from "./bluesky-icon";
+import RSSIcon from "./rss-icon";
 import type { JSX } from "react";
 
 type SocialItem = {
@@ -33,6 +35,12 @@ export default function SocialLinks() {
       animation: github,
       icon: undefined,
     },
+    {
+      label: "rss",
+      href: "https://kelsiesmurphy.com/rss.xml",
+      animation: undefined,
+      icon: RSSIcon,
+    },
   ];
 
   return (
@@ -49,7 +57,11 @@ export default function SocialLinks() {
                 {socialItem.animation ? (
                   <AnimatedIcon animation={socialItem.animation} />
                 ) : (
-                  socialItem.icon && <socialItem.icon />
+                  socialItem.icon && (
+                    <div className="hover:animate-ping">
+                      <socialItem.icon />
+                    </div>
+                  )
                 )}
                 {socialItem.label}
               </a>

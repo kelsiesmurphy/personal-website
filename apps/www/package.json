@@ -11,6 +11,7 @@
   "dependencies": {
     "@astrojs/mdx": "^4.0.5",
     "@astrojs/react": "^4.1.2",
+    "@astrojs/rss": "^4.0.11",
     "@astrojs/tailwind": "^5.1.4",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
@@ -23,9 +24,11 @@
     "framer-motion": "^11.17.0",
     "lenis": "^1.1.19",
     "lucide-react": "catalog:",
+    "markdown-it": "^14.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-useanimations": "^2.10.0"
+    "react-useanimations": "^2.10.0",
+    "sanitize-html": "^2.14.0"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",

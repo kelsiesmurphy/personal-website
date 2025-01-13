@@ -51,7 +51,7 @@ const AboutTimeline = () => {
                   {item.date}
                 </p>
                 <h3 className="text-lg font-semibold">{item.title}</h3>
-                <p className="mb-4 text-base font-normal text-secondary-foreground">
+                <p className="mb-4 text-base font-normal">
                   {item.description}
                 </p>
               </li>

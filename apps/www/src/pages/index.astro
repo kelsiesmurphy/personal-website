@@ -6,10 +6,14 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout>
   <div class="space-y-4">
-    <div class="hidden sm:flex items-center justify-between h-28 flex-wrap gap-12">
+    <div
+      class="hidden sm:flex items-center justify-between h-28 flex-wrap gap-12"
+    >
       <Name client:only />
     </div>
-    <div class="flex sm:hidden items-center justify-between h-28 flex-wrap gap-12">
+    <div
+      class="flex sm:hidden items-center justify-between h-28 flex-wrap gap-12"
+    >
       <h1 class="font-nord font-bold text-2xl not-prose text-foreground">
         Kelsie Murphy
       </h1>
@@ -18,16 +22,16 @@ import Layout from "../layouts/Layout.astro";
       I'm interested in creating sustainable and accessible digital experiences.
       Currently, I'm building web applications for a global energy company as a
       software engineer consultant at <a
-        class="hover:underline outline-brand"
+        class="hover:underline"
         href="https://www.bjss.com/"
         target="_blank">BJSS</a
       >.
     </p>
     <p>
-      Previously, I studied music education at the University of Aberdeen,
-      before studying at Codeclan in 2023. I volunteered with Scottish Tech Army
-      to build features for the <a
-        class="hover:underline outline-brand"
+      Previously, I studied music education at the University of Aberdeen, and
+      then studied at CodeClan in 2023. I volunteered with Scottish Tech Army to
+      build features for the <a
+        class="hover:underline"
         href="https://apps.apple.com/us/app/sta-volunteers/id1632619020"
         target="_blank">'STA Volunteers'</a
       > mobile application.

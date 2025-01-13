@@ -16,6 +16,12 @@ const { title, description, image = "/kelsie-murphy.jpg" } = Astro.props;
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/png" href="/kelsie-murphy.png" />
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title="Kelsie Murphy's Personal Website"
+  href={new URL("rss.xml", Astro.site)}
+/>
 <meta name="generator" content={Astro.generator} />
 
 <!-- Canonical URL -->

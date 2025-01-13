@@ -11,7 +11,7 @@ export default function YouTubeLink({
     <a
       href={link}
       target="_blank"
-      className="not-prose outline-brand min-h-44 hover:-translate-y-1 transition-all duration-200 justify-between flex gap-6 border flex-1 rounded-2xl min-w-[260px] p-6 bg-red-50 border-red-100 dark:bg-red-950 dark:border-red-900"
+      className="not-prose min-h-44 hover:-translate-y-1 transition-all duration-200 justify-between flex gap-6 border flex-1 rounded-2xl min-w-[260px] p-6 bg-red-50 border-red-100 dark:bg-red-950 dark:border-red-900"
     >
       <div className="space-y-2">
         <div className="bg-[#ea3323] border border-[#dc3021] w-10 h-10 p-2 rounded-lg">
