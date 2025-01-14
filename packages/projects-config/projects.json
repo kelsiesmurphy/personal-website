@@ -3,8 +3,8 @@
       "name": "Earth",
       "slug": "earth",
       "description": "A 3D Earth built with ThreeJS",
-      "repo": "https://github.com/kelsiesmurphy/projects/earth",
-      "url": "http://localhost:5173"
+      "repo": "https://github.com/kelsiesmurphy/projects/project-earth",
+      "url": "https://project-earth-kelsie.netlify.app/"
     }
   ]
   
