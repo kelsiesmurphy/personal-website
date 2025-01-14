@@ -15,6 +15,7 @@
     "@astrojs/tailwind": "^5.1.4",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "@repo/projects-config": "workspace:*",
     "@repo/ui": "workspace:*",
     "@studio-freight/lenis": "^1.0.42",
     "@types/react": "^19.0.4",

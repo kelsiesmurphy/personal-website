@@ -5,6 +5,7 @@ export default function Navigation() {
     { label: "home", href: "/" },
     { label: "about", href: "/about" },
     { label: "writing", href: "/writing" },
+    { label: "projects", href: "/projects" },
   ];
 
   return (
