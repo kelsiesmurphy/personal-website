@@ -1,4 +1,6 @@
 // @ts-check
+import projects from "@repo/projects-config/projects.json";
+
 import { defineConfig } from 'astro/config';
 
 import tailwind from '@astrojs/tailwind';
@@ -14,5 +16,8 @@ export default defineConfig({
   site: "https://kelsiesmurphy.com",
   integrations: [tailwind({
     applyBaseStyles: false,
-  }), react(), mdx(), lenis()]
+  }), react(), mdx(), lenis()],
+  redirects: {
+    '/projects': `/projects/${projects[0].slug}`
+  }
 });
