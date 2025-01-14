@@ -4,7 +4,7 @@
       "slug": "earth",
       "description": "A 3D Earth built with ThreeJS",
       "repo": "https://github.com/kelsiesmurphy/projects/earth",
-      "url": "http://localhost:3000"
+      "url": "http://localhost:5173"
     },
     {
       "name": "Other Project",
