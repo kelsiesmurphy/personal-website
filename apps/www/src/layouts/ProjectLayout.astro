@@ -1,6 +1,7 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import Navigation from "../components/react/navigation";
+import ProjectNavigation from "../components/react/project-navigation";
 ---
 
 <script>
@@ -24,7 +25,7 @@ import Navigation from "../components/react/navigation";
     />
   </head>
   <body
-    class="bg-[#f1ede5] min-h-screen antialiased selection:text-white selection:bg-orange-950"
+    class="bg-[#f1ede5] antialiased selection:text-white selection:bg-orange-950"
   >
     <a
       href="#main-content"
@@ -33,9 +34,10 @@ import Navigation from "../components/react/navigation";
       Skip to content
     </a>
 
-    <main>
-      <section id="main-content" class="min-h-screen flex-1 flex flex-col">
-          <slot />
+    <main class="min-h-screen flex flex-col">
+      <ProjectNavigation />
+      <section id="main-content" class="flex-1 flex flex-col">
+        <slot />
       </section>
     </main>
   </body>

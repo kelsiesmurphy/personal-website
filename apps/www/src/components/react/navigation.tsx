@@ -10,7 +10,7 @@ export default function Navigation() {
 
   return (
     <nav>
-      <ul className="flex gap-8 flex-wrap">
+      <ul className="flex gap-4 flex-wrap">
         {navList.map((navItem) => (
           <li key={navItem.label}>
             <Button variant="link" className="px-2" asChild>
