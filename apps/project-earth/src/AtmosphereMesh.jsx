@@ -1,6 +1,7 @@
 import * as THREE from "three";
+import React from "react";
 
-function getFresnelShaderArgs({rimHex = 0x5CB3FF, facingHex = 0x000000} = {}) {
+function getFresnelShaderArgs({ rimHex = 0x5cb3ff, facingHex = 0x000000 } = {}) {
   const uniforms = {
     color1: { value: new THREE.Color(rimHex) },
     color2: { value: new THREE.Color(facingHex) },
@@ -50,8 +51,10 @@ function getFresnelShaderArgs({rimHex = 0x5CB3FF, facingHex = 0x000000} = {}) {
   return args;
 }
 
-function AtmosphereMesh({rimHex, facingHex}) {
-  const args = getFresnelShaderArgs({rimHex, facingHex});
+function AtmosphereMesh({ rimHex, facingHex }) {
+  // Memoize shader args for performance
+  const args = React.useMemo(() => getFresnelShaderArgs({ rimHex, facingHex }), [rimHex, facingHex]);
+
   return (
     <mesh>
       <icosahedronGeometry args={[2.03, 32]} />

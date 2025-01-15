@@ -1,8 +1,8 @@
-import { useFrame } from "@react-three/fiber";
+import { useFrame, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
 import React from "react";
 
-function getPoints({ numStars = 500 } = {}) {
+function getPoints({ numStars = 500, texture }) {
   function randomSpherePoint() {
     const radius = Math.random() * 25 + 25;
     const u = Math.random();
@@ -25,54 +25,60 @@ function getPoints({ numStars = 500 } = {}) {
       minDist: radius,
     };
   }
+
   const verts = [];
   const colors = [];
   const positions = [];
-  let col;
-  for (let i = 0; i < numStars; i += 1) {
+  for (let i = 0; i < numStars; i++) {
     let p = randomSpherePoint();
-    const { pos, hue } = p;
+    const { pos, update } = p;
     positions.push(p);
-    col = new THREE.Color().setHSL(hue, 0.2, Math.random());
+    const col = new THREE.Color().setHSL(0.6, 0.2, Math.random());
     verts.push(pos.x, pos.y, pos.z);
     colors.push(col.r, col.g, col.b);
   }
+
   const geo = new THREE.BufferGeometry();
   geo.setAttribute("position", new THREE.Float32BufferAttribute(verts, 3));
   geo.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
+
   const mat = new THREE.PointsMaterial({
     size: 0.2,
     vertexColors: true,
-    map: new THREE.TextureLoader().load(
-      "./circle.png"
-    ),
+    map: texture,
+    transparent: true,
   });
+
   const points = new THREE.Points(geo, mat);
+
   function update(t) {
-      points.rotation.y -= 0.0002;
-      let col;
-      const colors = [];
-      for (let i = 0; i < numStars; i += 1) {
-        const p = positions[i];
-        const { update } = p;
-        let bright = update(t);
-        col = new THREE.Color().setHSL(0.6, 0.2, bright);
-        colors.push(col.r, col.g, col.b);
-      }
-      geo.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
-      geo.attributes.color.needsUpdate = true;
+    points.rotation.y -= 0.0002;
+    const colors = [];
+    for (let i = 0; i < numStars; i++) {
+      const p = positions[i];
+      const bright = p.update(t);
+      const col = new THREE.Color().setHSL(0.6, 0.2, bright);
+      colors.push(col.r, col.g, col.b);
     }
-    points.userData = { update };
+    geo.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
+    geo.attributes.color.needsUpdate = true;
+  }
+
+  points.userData = { update };
   return points;
 }
 
-function Starfield () {
+function Starfield() {
   const ref = React.useRef();
-  const points = getPoints({ numStars: 3000 });
+  const texture = useLoader(THREE.TextureLoader, "./circle.png");
+
+  const points = React.useMemo(() => getPoints({ numStars: 3000, texture }), [texture]);
+
   useFrame((state) => {
-    let { clock } = state;
-    ref.current.userData.update(clock.elapsedTime);
+    ref.current.userData.update(state.clock.elapsedTime);
   });
-  return <primitive object={points} ref={ref}/>
+
+  return <primitive object={points} ref={ref} />;
 }
+
 export default Starfield;
