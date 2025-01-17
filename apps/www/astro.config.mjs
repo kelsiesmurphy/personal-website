@@ -17,7 +17,4 @@ export default defineConfig({
   integrations: [tailwind({
     applyBaseStyles: false,
   }), react(), mdx(), lenis()],
-  redirects: {
-    '/projects': `/projects/${projects[0].slug}`
-  }
 });

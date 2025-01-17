@@ -23,6 +23,7 @@
     "astro": "^5.1.4",
     "astro-lenis": "^1.0.0",
     "framer-motion": "^11.17.0",
+    "fontaine": "catalog:",
     "lenis": "^1.1.19",
     "lucide-react": "catalog:",
     "markdown-it": "^14.1.0",

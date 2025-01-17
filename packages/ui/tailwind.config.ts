@@ -20,7 +20,7 @@ const config = {
     },
     extend: {
       fontFamily: {
-        nord: ["Nord", ...defaultTheme.fontFamily.sans],
+        nord: ['"Nord"', '"Nord override"', 'sans-serif', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         border: "hsl(var(--border))",

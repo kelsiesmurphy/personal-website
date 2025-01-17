@@ -1,0 +1,10 @@
+{
+  "$schema": "https://www.partykit.io/schema.json",
+  "name": "trace-entirely",
+  "main": "party/server.ts",
+  "compatibilityDate": "2025-01-16",
+  "serve": {
+    "path": "public",
+    "build": "app/client.tsx"
+  }
+}

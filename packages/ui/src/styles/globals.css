@@ -6,8 +6,8 @@
 
 @layer base {
   :root {
-    --background: 45 33% 93%; /* Light sandy background */
-    --foreground: 0 0% 20%; /* Dark grey for text */
+    --background: 45 33% 93%;
+    --foreground: 0 0% 20%;
 
     --card: 45 33% 93%;
     --card-foreground: 0 0% 20%;
@@ -15,22 +15,22 @@
     --popover: 45 33% 93%;
     --popover-foreground: 0 0% 20%;
 
-    --primary: 0 0% 20%; /* Dark grey for primary elements */
+    --primary: 0 0% 20%;
     --primary-foreground: 45 33% 93%;
 
-    --secondary: 30 20% 50%; /* Medium brown for secondary elements */
+    --secondary: 30 20% 50%;
     --secondary-foreground: 45 33% 93%;
 
-    --muted: 30 20% 70%; /* Light brown for muted elements */
+    --muted: 30 20% 70%;
     --muted-foreground: 0 0% 20%;
 
-    --accent: 0 0% 20%; /* Dark grey for accent elements */
+    --accent: 0 0% 20%;
     --accent-foreground: 45 33% 93%;
 
-    --destructive: 0 70% 50%; /* Red for destructive actions */
+    --destructive: 0 70% 50%;
     --destructive-foreground: 45 33% 93%;
 
-    --border: 30 20% 80%; /* Light brown for borders */
+    --border: 30 20% 80%;
     --input: 30 20% 80%;
     --ring: 0 0% 20%;
 
@@ -38,8 +38,8 @@
   }
 
   .dark {
-    --background: 0 0% 20%; /* Dark grey for dark mode background */
-    --foreground: 45 33% 93%; /* Light sandy for text in dark mode */
+    --background: 0 0% 20%;
+    --foreground: 45 33% 93%;
 
     --card: 0 0% 20%;
     --card-foreground: 45 33% 93%;
@@ -47,22 +47,22 @@
     --popover: 0 0% 20%;
     --popover-foreground: 45 33% 93%;
 
-    --primary: 45 33% 93%; /* Light sandy for primary elements in dark mode */
+    --primary: 45 33% 93%;
     --primary-foreground: 0 0% 20%;
 
-    --secondary: 30 20% 70%; /* Light brown for secondary elements */
+    --secondary: 30 20% 70%;
     --secondary-foreground: 0 0% 20%;
 
-    --muted: 30 20% 50%; /* Medium brown for muted elements */
+    --muted: 30 20% 50%;
     --muted-foreground: 45 33% 93%;
 
-    --accent: 45 33% 93%; /* Light sandy for accent elements */
+    --accent: 45 33% 93%;
     --accent-foreground: 0 0% 20%;
 
-    --destructive: 0 70% 50%; /* Red for destructive actions */
+    --destructive: 0 70% 50%;
     --destructive-foreground: 45 33% 93%;
 
-    --border: 30 20% 50%; /* Medium brown for borders */
+    --border: 30 20% 50%;
     --input: 30 20% 50%;
     --ring: 45 33% 93%;
   }
