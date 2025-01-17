@@ -1,6 +1,3 @@
-// @ts-check
-import projects from "@repo/projects-config/projects.json";
-
 import { defineConfig } from 'astro/config';
 
 import tailwind from '@astrojs/tailwind';
