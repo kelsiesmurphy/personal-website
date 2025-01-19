@@ -1,0 +1,42 @@
+export const veganRestaurants = [
+  {
+    name: "The 13th Note",
+    address: "50-60 King St, Glasgow G1 5QT",
+    veganOptions: "Fully Vegan",
+    rating: 4.5,
+    latitude: 55.8566,
+    longitude: -4.2468,
+  },
+  {
+    name: "Mono",
+    address: "12 Kings Court, Glasgow G1 5RB",
+    veganOptions: "Fully Vegan",
+    rating: 4.7,
+    latitude: 55.8564,
+    longitude: -4.246,
+  },
+  {
+    name: "Ranjit's Kitchen",
+    address: "607 Pollokshaws Rd, Glasgow G41 2QG",
+    veganOptions: "Vegetarian with Vegan Options",
+    rating: 4.6,
+    latitude: 55.8396,
+    longitude: -4.2678,
+  },
+  {
+    name: "Picnic",
+    address: "103 Ingram St, Glasgow G1 1DX",
+    veganOptions: "Fully Vegan",
+    rating: 4.8,
+    latitude: 55.8588,
+    longitude: -4.2461,
+  },
+  {
+    name: "The Flying Duck",
+    address: "142 Renfield St, Glasgow G2 3AU",
+    veganOptions: "Fully Vegan",
+    rating: 4.4,
+    latitude: 55.8655,
+    longitude: -4.2543,
+  },
+];

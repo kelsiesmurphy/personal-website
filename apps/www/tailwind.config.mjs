@@ -1,6 +1,6 @@
-const sharedConfig = require('@repo/ui/tailwind.config');
+import sharedConfig from '@repo/ui/tailwind.config';
 
-module.exports = {
+export default {
   ...sharedConfig,
   content: [
     './src/**/*.{astro,html,js,jsx,ts,tsx,vue,svelte}', // Astro app files

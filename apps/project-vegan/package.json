@@ -1,0 +1,41 @@
+{
+  "name": "project-vegan",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@maptiler/sdk": "^3.0.1",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/projects-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@repo/ui": "workspace:*",
+    "leaflet": "^1.9.4",
+    "leaflet-defaulticon-compatibility": "^0.1.2",
+    "next": "15.1.5",
+    "react": "catalog:react18",
+    "react-dom": "catalog:react18",
+    "react-leaflet": "^5.0.0",
+    "self-update": "^0.0.1"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.2.0",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/projects-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@repo/ui": "workspace:*",
+    "@types/leaflet": "^1.9.16",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:react18",
+    "@types/react-dom": "catalog:react18",
+    "eslint": "catalog:",
+    "eslint-config-next": "15.1.5",
+    "postcss": "catalog:",
+    "tailwindcss": "catalog:",
+    "typescript": "catalog:"
+  }
+}
