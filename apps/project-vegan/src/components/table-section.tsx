@@ -14,7 +14,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import { ArrowUpDown, ChevronDown, Map } from "lucide-react";
-
+import { toast } from "sonner";
 import { Button } from "@repo/ui/components/ui/button";
 import {
   DropdownMenu,
@@ -35,14 +35,38 @@ import { Restaurant } from "@/content/restaurants";
 
 export const columns: ColumnDef<Restaurant>[] = [
   {
+    id: "actions",
+    enableHiding: false,
+    cell: ({ row }) => {
+      const name: string = row.getValue("name");
+      const address: string = row.getValue("address");
+
+      const handleMapClick = (event: React.MouseEvent) => {
+        event.stopPropagation();
+        const query = encodeURIComponent(name + ", " + address); // Encodes the address
+        const mapsUrl = `https://www.google.com/maps?q=${query}`;
+
+        // Open the link (this will open in mobile Google Maps app if available)
+        window.open(mapsUrl, "_blank");
+      };
+
+      return (
+        <Button variant="outline" size="icon" onClick={handleMapClick}>
+          <Map />
+        </Button>
+      );
+    },
+  },
+  {
     accessorKey: "name",
     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
+          className="px-1"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          name
+          Name
           <ArrowUpDown />
         </Button>
       );
@@ -51,63 +75,64 @@ export const columns: ColumnDef<Restaurant>[] = [
   },
   {
     accessorKey: "cuisine",
-    header: "cuisine",
+    header: "Cuisine",
     cell: ({ row }) => (
       <div className="capitalize">{row.getValue("cuisine")}</div>
     ),
   },
   {
     accessorKey: "veganOptions",
-    header: "veganOptions",
+    header: "Options",
     cell: ({ row }) => (
       <div className="capitalize">{row.getValue("veganOptions")}</div>
     ),
   },
   {
-    accessorKey: "address",
-    header: "address",
-    cell: ({ row }) => (
-      <div
-        onClick={() => navigator.clipboard.writeText(row.getValue("address"))}
-        className="capitalize"
-      >
-        {row.getValue("address")}
-      </div>
-    ),
-  },
-  {
-    accessorKey: "cityArea",
-    header: "cityArea",
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("cityArea")}</div>
-    ),
-  },
-  {
     accessorKey: "jRating",
-    header: "jRating",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          className="px-1"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Rating
+          <ArrowUpDown />
+        </Button>
+      );
+    },
     cell: ({ row }) => (
       <div className="capitalize">{row.getValue("jRating")}</div>
     ),
   },
   {
+    accessorKey: "cityArea",
+    header: "Area",
+    cell: ({ row }) => (
+      <div className="capitalize">{row.getValue("cityArea")}</div>
+    ),
+  },
+  {
     accessorKey: "notes",
-    header: "notes",
+    header: "Notes",
     cell: ({ row }) => (
       <div className="capitalize">{row.getValue("notes")}</div>
     ),
   },
   {
-    id: "actions",
-    enableHiding: false,
-    cell: ({ row }) => {
-      const rowItem = row.original;
-
-      return (
-        <Button variant="outline" size="icon">
-          <Map />
-        </Button>
-      );
-    },
+    accessorKey: "address",
+    header: "Address",
+    cell: ({ row }) => (
+      <div
+        onClick={() => {
+          navigator.clipboard.writeText(row.getValue("address"));
+          toast("Copied address to clipboard");
+        }}
+        className="capitalize hover:underline cursor-pointer flex gap-2 items-center"
+      >
+        {row.getValue("address")}
+      </div>
+    ),
   },
 ];
 
@@ -120,7 +145,9 @@ export function TableSection({
   selectedLocation: Restaurant | null;
   setSelectedLocation: React.Dispatch<React.SetStateAction<Restaurant | null>>;
 }) {
-  const [sorting, setSorting] = React.useState<SortingState>([]);
+  const [sorting, setSorting] = React.useState<SortingState>([
+    { id: "jRating", desc: true },
+  ]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
   );
@@ -149,10 +176,11 @@ export function TableSection({
   });
 
   return (
-    <div className="w-full">
+    <div className="w-full space-y-6">
+      <h1 className="text-2xl font-semibold">Vegan options around Glasgow</h1>
       <div className="flex items-center py-4">
         <Input
-          placeholder="Filter restaurants..."
+          placeholder="Filter by name..."
           value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
             table.getColumn("name")?.setFilterValue(event.target.value)
@@ -213,7 +241,7 @@ export function TableSection({
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
                   onClick={() => setSelectedLocation(row.original)}
-                  className={`h-24 ${selectedLocation === row.original ? "bg-secondary hover:bg-secondary" : ""}`}
+                  className={`h-24 ${selectedLocation === row.original ? "bg-popover hover:bg-popover" : ""}`}
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>

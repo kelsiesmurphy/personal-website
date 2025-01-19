@@ -18,6 +18,7 @@
     "leaflet": "^1.9.4",
     "leaflet-defaulticon-compatibility": "^0.1.2",
     "next": "15.1.5",
+    "sonner": "catalog:",
     "lucide-react": "catalog:",
     "react": "catalog:react18",
     "react-dom": "catalog:react18",

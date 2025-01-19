@@ -21,7 +21,6 @@ export default function MapSection({
 
   maptilersdk.config.apiKey = process.env.NEXT_PUBLIC_MAPTILER_API_KEY!;
 
-  // Helper function to fetch latitude and longitude from an address
   const fetchCoordinates = async (address: string) => {
     try {
       const response = await fetch(
@@ -31,7 +30,10 @@ export default function MapSection({
         throw new Error(`Failed to fetch: ${response.statusText}`);
       const data = await response.json();
       if (data.length === 0) return null; // No results
-      return { lat: parseFloat(data.features[0].geometry.coordinates[1]), lon: parseFloat(data.features[0].geometry.coordinates[0]) };
+      return {
+        lat: parseFloat(data.features[0].geometry.coordinates[1]),
+        lon: parseFloat(data.features[0].geometry.coordinates[0]),
+      };
     } catch (error) {
       console.error(
         `Error fetching coordinates for address "${address}":`,
@@ -44,12 +46,12 @@ export default function MapSection({
   useEffect(() => {
     if (!map.current) {
       map.current = new maptilersdk.Map({
-        container: mapContainer.current as HTMLElement, // Non-null assertion
+        container: mapContainer.current as HTMLElement,
         style: maptilersdk.MapStyle.STREETS,
         center: [location.lng, location.lat],
         zoom: zoom,
-        maxZoom: 16,
-        minZoom: 10,
+        maxZoom: 18,
+        minZoom: 13,
       });
     }
   }, []);
@@ -57,22 +59,22 @@ export default function MapSection({
   useEffect(() => {
     if (!map.current) return;
 
-    // Remove existing markers
     markers.current.forEach((marker) => marker.remove());
     markers.current = [];
 
     (async () => {
       const markerPromises = restaurants.map(async (restaurant) => {
         const coords = await fetchCoordinates(restaurant.address);
-        if (!coords) return null; // Skip marker if coordinates not found
+        if (!coords) return null;
 
-        const marker = new maptilersdk.Marker({ color: "#FF0000" })
+        const veganIcon = document.createElement("img");
+        veganIcon.src = "/vegan-icon.svg";
+        veganIcon.alt = "Vegan Icon";
+
+        const marker = new maptilersdk.Marker({
+          element: veganIcon,
+        })
           .setLngLat([coords.lon, coords.lat])
-          .setPopup(
-            new maptilersdk.Popup().setHTML(
-              `<strong>${restaurant.name}</strong><br>${restaurant.address}`
-            )
-          )
           .addTo(map.current!);
 
         marker.getElement().addEventListener("click", () => {
@@ -82,7 +84,6 @@ export default function MapSection({
         return marker;
       });
 
-      // Wait for all markers to resolve and filter out null values
       markers.current = (await Promise.all(markerPromises)).filter(
         (marker): marker is maptilersdk.Marker => marker !== null
       );
@@ -114,7 +115,7 @@ export default function MapSection({
 
       map.current!.flyTo({
         center: [coords.lon, coords.lat],
-        zoom: 14,
+        zoom: 16,
         speed: 1.2,
       });
     })();

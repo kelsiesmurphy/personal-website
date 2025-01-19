@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "@repo/ui/globals.css";
 import "leaflet/dist/leaflet.css";
+import { Toaster } from "@repo/ui/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "Glasgow Vegan Map",
@@ -14,7 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        {children}
+        <Toaster />
+      </body>
     </html>
   );
 }
