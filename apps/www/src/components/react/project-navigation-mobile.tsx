@@ -34,7 +34,7 @@ export default function ProjectNavMobile({
           <SelectGroup>
             {projects.map((project) => {
               return (
-                <SelectItem value={project.slug}>
+                <SelectItem value={project.slug} key={project.slug}>
                   <a className="font-normal" href={`/projects/${project.slug}`}>
                     Project {project.name}
                   </a>

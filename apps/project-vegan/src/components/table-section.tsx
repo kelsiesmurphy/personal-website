@@ -61,7 +61,7 @@ export const columns: ColumnDef<Restaurant>[] = [
       return (
         <Button
           variant="ghost"
-          className="px-1"
+          className="px-1 "
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
           Name
@@ -69,7 +69,7 @@ export const columns: ColumnDef<Restaurant>[] = [
         </Button>
       );
     },
-    cell: ({ row }) => <div>{row.getValue("name")}</div>,
+    cell: ({ row }) => <div className="font-medium">{row.getValue("name")}</div>,
   },
   {
     accessorKey: "cuisine",
