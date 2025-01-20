@@ -46,7 +46,7 @@ export default function Home() {
 
           const data = await response.json();
           const formattedData = data.records
-            .filter((record: { fields: { closed: any; }; }) => !record.fields.closed)
+            // .filter((record: { fields: { closed: any; }; }) => !record.fields.closed)
             .map((record: any) => ({
               id: record.id,
               name: record.fields.name,
