@@ -39,7 +39,7 @@ import ProjectNavigation from "../components/react/project-navigation";
         currentProjectName={Astro.url.pathname.split("/").pop()}
         client:load
       />
-      <p>url: {JSON.stringify(Astro.url.pathname.split("/").pop())}</p>
+      <p>url new: {JSON.stringify(Astro.url.pathname.split("/").pop())}</p>
       <section id="main-content" class="flex-1 flex flex-col">
         <slot />
       </section>
