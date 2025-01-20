@@ -43,10 +43,8 @@ export const columns: ColumnDef<Restaurant>[] = [
 
       const handleMapClick = (event: React.MouseEvent) => {
         event.stopPropagation();
-        const query = encodeURIComponent(name + ", " + address); // Encodes the address
+        const query = encodeURIComponent(name + ", " + address);
         const mapsUrl = `https://www.google.com/maps?q=${query}`;
-
-        // Open the link (this will open in mobile Google Maps app if available)
         window.open(mapsUrl, "_blank");
       };
 
@@ -126,7 +124,7 @@ export const columns: ColumnDef<Restaurant>[] = [
       <div
         onClick={() => {
           navigator.clipboard.writeText(row.getValue("address"));
-          toast("Copied address to clipboard");
+          toast("Copied address to clipboard!");
         }}
         className="capitalize hover:underline cursor-pointer flex gap-2 items-center"
       >
@@ -173,10 +171,11 @@ export function TableSection({
       columnVisibility,
       rowSelection,
     },
+    manualPagination: true,
   });
 
   return (
-    <div className="w-full space-y-6">
+    <div className="w-full px-1 space-y-6">
       <h1 className="text-2xl font-semibold">Vegan options around Glasgow</h1>
       <div className="flex items-center py-4 space-x-4">
         <Input

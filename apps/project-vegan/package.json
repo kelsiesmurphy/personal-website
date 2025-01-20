@@ -15,15 +15,16 @@
     "@repo/typescript-config": "workspace:*",
     "@repo/ui": "workspace:*",
     "@tanstack/react-table": "^8.20.6",
+    "airtable": "^0.12.2",
     "leaflet": "^1.9.4",
     "leaflet-defaulticon-compatibility": "^0.1.2",
-    "next": "15.1.5",
-    "sonner": "catalog:",
     "lucide-react": "catalog:",
+    "next": "15.1.5",
     "react": "catalog:react18",
     "react-dom": "catalog:react18",
     "react-leaflet": "^5.0.0",
-    "self-update": "^0.0.1"
+    "self-update": "^0.0.1",
+    "sonner": "catalog:"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",

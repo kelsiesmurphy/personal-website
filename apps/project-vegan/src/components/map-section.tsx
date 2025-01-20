@@ -22,14 +22,21 @@ export default function MapSection({
   maptilersdk.config.apiKey = process.env.NEXT_PUBLIC_MAPTILER_API_KEY!;
 
   const fetchCoordinates = async (address: string) => {
+    if (!address || address.trim() === "") {
+      console.warn("Skipping API call: Address is empty.");
+      return null;
+    }
+
     try {
       const response = await fetch(
         `https://api.mapbox.com/search/geocode/v6/forward?q=${encodeURIComponent(address)}&country=gb&limit=1&access_token=${process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}`
       );
       if (!response.ok)
         throw new Error(`Failed to fetch: ${response.statusText}`);
+
       const data = await response.json();
-      if (data.length === 0) return null; // No results
+      if (data.features.length === 0) return null; // No results
+
       return {
         lat: parseFloat(data.features[0].geometry.coordinates[1]),
         lon: parseFloat(data.features[0].geometry.coordinates[0]),
@@ -109,7 +116,7 @@ export default function MapSection({
       popup.current = new maptilersdk.Popup({ offset: 25 })
         .setLngLat([coords.lon, coords.lat])
         .setHTML(
-          `<strong>${selectedLocation.name}</strong><br>${selectedLocation.address}`
+          `<strong>${selectedLocation.name}</strong><br>${selectedLocation.address}<br><i>'${selectedLocation.notes}, ${selectedLocation.jRating}/10'</i>`
         )
         .addTo(map.current!);
 
