@@ -56,7 +56,7 @@ export default function Home() {
         </ResizablePanelGroup>
       </div>
       <div className="md:hidden">
-        <div className="rounded-lg h-80">
+        <div className="rounded-2xl overflow-hidden h-80 m-6">
           <Map
             restaurants={veganRestaurants}
             selectedLocation={selectedLocation}

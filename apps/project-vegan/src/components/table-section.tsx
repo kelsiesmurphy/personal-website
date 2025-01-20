@@ -178,7 +178,7 @@ export function TableSection({
   return (
     <div className="w-full space-y-6">
       <h1 className="text-2xl font-semibold">Vegan options around Glasgow</h1>
-      <div className="flex items-center py-4">
+      <div className="flex items-center py-4 space-x-4">
         <Input
           placeholder="Filter by name..."
           value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}

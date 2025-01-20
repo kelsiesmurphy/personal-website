@@ -14,4 +14,7 @@ export default defineConfig({
   integrations: [tailwind({
     applyBaseStyles: false,
   }), react(), mdx(), lenis()],
+  redirects: {
+    '/projects': '/projects/earth'
+  }
 });
