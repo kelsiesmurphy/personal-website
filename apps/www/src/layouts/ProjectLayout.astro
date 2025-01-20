@@ -35,7 +35,10 @@ import ProjectNavigation from "../components/react/project-navigation";
     </a>
 
     <main class="min-h-screen flex flex-col">
-      <ProjectNavigation />
+      <ProjectNavigation
+        currentProjectName={Astro.url.pathname.split("/").pop()}
+        client:load
+      />
       <section id="main-content" class="flex-1 flex flex-col">
         <slot />
       </section>
