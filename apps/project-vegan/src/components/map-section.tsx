@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react";
 import * as maptilersdk from "@maptiler/sdk";
 import "@maptiler/sdk/dist/maptiler-sdk.css";
 import { Restaurant } from "@/content/restaurants";
+import { getVeganIcon } from "@/utils/utils";
 
 export default function MapSection({
   restaurants,
@@ -75,7 +76,7 @@ export default function MapSection({
         if (!coords) return null;
 
         const veganIcon = document.createElement("img");
-        veganIcon.src = "/vegan-icon.svg";
+        veganIcon.src = getVeganIcon(restaurant.jRating);
         veganIcon.alt = "Vegan Icon";
 
         const marker = new maptilersdk.Marker({
