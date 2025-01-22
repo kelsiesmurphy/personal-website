@@ -16,7 +16,7 @@ export default function Home() {
   const [selectedLocation, setSelectedLocation] = useState<Restaurant | null>(
     null
   );
-  const [restaurants, setRestaurants] = useState<Restaurant[]>(testRestaurants); // Default to test data
+  const [restaurants, setRestaurants] = useState<Restaurant[]>(testRestaurants); 
 
   const Map = useMemo(
     () =>
@@ -30,33 +30,44 @@ export default function Home() {
   useEffect(() => {
     const fetchRestaurants = async () => {
       if (process.env.NEXT_PUBLIC_USE_LIVE_DATA === "true") {
+        const allRecords = [];
+        let offset = null;
+
         try {
-          const response = await fetch(
-            "https://api.airtable.com/v0/appSjNQb6RypjOwtE/tblCOINQTsnWRQXiW",
-            {
+          do {
+            const url = new URL(
+              "https://api.airtable.com/v0/appSjNQb6RypjOwtE/tblCOINQTsnWRQXiW"
+            );
+            url.searchParams.append("pageSize", "100");
+            if (offset) url.searchParams.append("offset", offset);
+
+            const response = await fetch(url.toString(), {
               headers: {
                 Authorization: `Bearer ${process.env.NEXT_PUBLIC_AIRTABLE_API_KEY}`,
               },
+            });
+
+            if (!response.ok) {
+              throw new Error("Failed to fetch data");
             }
-          );
 
-          if (!response.ok) {
-            throw new Error("Failed to fetch data");
-          }
+            const data = await response.json();
+            allRecords.push(...data.records);
+            offset = data.offset;
+          } while (offset);
 
-          const data = await response.json();
-          const formattedData = data.records
-            // .filter((record: { fields: { closed: any; }; }) => !record.fields.closed)
-            .map((record: any) => ({
-              id: record.id,
-              name: record.fields.name,
-              address: record.fields.address,
-              cityArea: record.fields.cityArea,
-              cuisine: record.fields.cuisine,
-              veganOptions: record.fields.veganOptions,
-              jRating: record.fields.jRating,
-              notes: record.fields.notes,
-            }));
+          const formattedData = allRecords.map((record) => ({
+            id: record.id,
+            name: record.fields.name,
+            address: record.fields.address,
+            cityArea: record.fields.cityArea,
+            cuisine: record.fields.cuisine,
+            veganOptions: record.fields.veganOptions,
+            jRating: record.fields.jRating,
+            notes: record.fields.notes,
+          }));
+
+          console.log(formattedData);
 
           setRestaurants(formattedData);
         } catch (error) {
