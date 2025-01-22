@@ -1,17 +1,31 @@
 [
     {
-      "name": "Earth",
+      "name": "3D Earth",
       "slug": "earth",
       "description": "A 3D Earth built with ThreeJS",
       "repo": "https://github.com/kelsiesmurphy/projects/project-earth",
       "url": "https://project-earth-kelsie.netlify.app/"
     },
     {
-      "name": "Vegan",
+      "name": "Vegan Map",
       "slug": "vegan",
       "description": "A map of Glasgow showing the vegan food locations",
       "repo": "https://github.com/kelsiesmurphy/projects/project-earth",
       "url": "https://project-vegan-kelsie.netlify.app/"
+    },
+    {
+      "name": "GreenCheck",
+      "slug": "greencheck",
+      "description": "GreenCheck is a browser extension that identifies websites powered by green energy, and offers detailed analysis on the site’s carbon emissions.",
+      "repo": "https://github.com/kelsiesmurphy/greencheck-site",
+      "url": "https://getgreencheck.com/"
+    },
+    {
+      "name": "PlanetCareer",
+      "slug": "planetcareer",
+      "description": "PlanetCareer is a job application tracking tool",
+      "repo": "https://github.com/kelsiesmurphy/planetcareer",
+      "url": "https://www.planetcareer.co.uk/"
     }
   ]
   

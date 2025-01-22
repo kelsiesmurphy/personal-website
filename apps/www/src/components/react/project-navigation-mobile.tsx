@@ -28,7 +28,7 @@ export default function ProjectNavMobile({
     <div className="flex md:hidden">
       <Select>
         <SelectTrigger className="px-0 border-none font-nord font-bold text-lg">
-          <SelectValue placeholder={`Project ${currentProjectName}`} />
+          <SelectValue placeholder={currentProjectName} />
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
@@ -36,7 +36,7 @@ export default function ProjectNavMobile({
               return (
                 <SelectItem value={project.slug} key={project.slug}>
                   <a className="font-normal" href={`/projects/${project.slug}`}>
-                    Project {project.name}
+                    {project.name}
                   </a>
                 </SelectItem>
               );

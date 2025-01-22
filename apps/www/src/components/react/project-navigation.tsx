@@ -12,7 +12,7 @@ export default function ProjectNavigation({
       <div className="container flex items-center justify-between gap-6">
         <div className="flex gap-8 items-center">
           <h1 className="hidden md:block font-nord font-bold text-lg">
-            Project {currentProjectName}
+            {currentProjectName}
           </h1>
           <ProjectNavMobile
             projects={projects}
@@ -23,7 +23,7 @@ export default function ProjectNavigation({
               <li key={project.slug}>
                 <Button variant="link" className="px-2" asChild>
                   <a className="font-normal" href={`/projects/${project.slug}`}>
-                    {project.name.toLocaleLowerCase()}
+                    {project.name}
                   </a>
                 </Button>
               </li>
