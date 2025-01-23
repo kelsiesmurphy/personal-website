@@ -67,8 +67,6 @@ export default function Home() {
             notes: record.fields.notes,
           }));
 
-          console.log(formattedData);
-
           setRestaurants(formattedData);
         } catch (error) {
           console.error("Error fetching live data:", error);

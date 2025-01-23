@@ -6,6 +6,9 @@ import { Toaster } from "@repo/ui/components/ui/sonner";
 export const metadata: Metadata = {
   title: "Glasgow Vegan Map",
   description: "A map of the vegan restaurants in Glasgow",
+  icons: {
+    icon: '🥑',
+  },
 };
 
 export default function RootLayout({

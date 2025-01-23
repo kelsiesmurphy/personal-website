@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import {
-  ColumnDef,
   ColumnFiltersState,
   SortingState,
   VisibilityState,
@@ -13,16 +12,6 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { ArrowUpDown, ChevronDown, Map } from "lucide-react";
-import { toast } from "sonner";
-import { Button } from "@repo/ui/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-} from "@repo/ui/components/ui/dropdown-menu";
-import { Input } from "@repo/ui/components/ui/input";
 import {
   Table,
   TableBody,
@@ -32,109 +21,9 @@ import {
   TableRow,
 } from "@repo/ui/components/ui/table";
 import { Restaurant } from "@/content/restaurants_mocks";
-
-export const columns: ColumnDef<Restaurant>[] = [
-  {
-    id: "actions",
-    enableHiding: false,
-    cell: ({ row }) => {
-      const name: string = row.getValue("name");
-      const address: string = row.getValue("address");
-
-      const handleMapClick = (event: React.MouseEvent) => {
-        event.stopPropagation();
-        const query = encodeURIComponent(name + ", " + address);
-        const mapsUrl = `https://www.google.com/maps?q=${query}`;
-        window.open(mapsUrl, "_blank");
-      };
-
-      return (
-        <Button variant="outline" size="icon" onClick={handleMapClick}>
-          <Map />
-        </Button>
-      );
-    },
-  },
-  {
-    accessorKey: "name",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          className="px-1 "
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Name
-          <ArrowUpDown />
-        </Button>
-      );
-    },
-    cell: ({ row }) => (
-      <div className="font-medium">{row.getValue("name")}</div>
-    ),
-  },
-  {
-    accessorKey: "cuisine",
-    header: "Cuisine",
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("cuisine")}</div>
-    ),
-  },
-  {
-    accessorKey: "veganOptions",
-    header: "Options",
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("veganOptions")}</div>
-    ),
-  },
-  {
-    accessorKey: "jRating",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          className="px-1"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Rating
-          <ArrowUpDown />
-        </Button>
-      );
-    },
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("jRating")}</div>
-    ),
-  },
-  {
-    accessorKey: "cityArea",
-    header: "Area",
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("cityArea")}</div>
-    ),
-  },
-  {
-    accessorKey: "notes",
-    header: "Notes",
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("notes")}</div>
-    ),
-  },
-  {
-    accessorKey: "address",
-    header: "Address",
-    cell: ({ row }) => (
-      <div
-        onClick={() => {
-          navigator.clipboard.writeText(row.getValue("address"));
-          toast("Copied address to clipboard!");
-        }}
-        className="capitalize hover:underline cursor-pointer flex gap-2 items-center"
-      >
-        {row.getValue("address")}
-      </div>
-    ),
-  },
-];
+import TableSearch from "./table-search";
+import { columns } from "./table-columns";
+import TableNoResults from "./table-no-results";
 
 export function TableSection({
   restaurants,
@@ -153,20 +42,31 @@ export function TableSection({
   );
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({});
-  const [rowSelection, setRowSelection] = React.useState({});
-  const data = restaurants;
+  const [rowSelection] = React.useState({});
+  const [filterInput, setFilterInput] = React.useState<string>("");
+
+  const filteredData = React.useMemo(() => {
+    if (!filterInput) return restaurants;
+
+    return restaurants.filter((restaurant) => {
+      const name = restaurant.name.toLowerCase();
+      const cuisine = restaurant.cuisine.toLowerCase();
+      const query = filterInput.toLowerCase();
+
+      return name.includes(query) || cuisine.includes(query);
+    });
+  }, [filterInput, restaurants]);
 
   const table = useReactTable({
-    data,
+    data: filteredData,
     columns,
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
+    onColumnVisibilityChange: setColumnVisibility,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
-    onColumnVisibilityChange: setColumnVisibility,
-    onRowSelectionChange: setRowSelection,
     state: {
       sorting,
       columnFilters,
@@ -179,42 +79,11 @@ export function TableSection({
   return (
     <div className="w-full px-1 space-y-6">
       <h1 className="text-2xl font-semibold">Vegan options around Glasgow</h1>
-      <div className="flex items-center py-4 space-x-4">
-        <Input
-          placeholder="Filter by name..."
-          value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
-          onChange={(event) =>
-            table.getColumn("name")?.setFilterValue(event.target.value)
-          }
-          className="max-w-sm"
-        />
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="ml-auto">
-              Columns <ChevronDown />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            {table
-              .getAllColumns()
-              .filter((column) => column.getCanHide())
-              .map((column) => {
-                return (
-                  <DropdownMenuCheckboxItem
-                    key={column.id}
-                    className="capitalize"
-                    checked={column.getIsVisible()}
-                    onCheckedChange={(value) =>
-                      column.toggleVisibility(!!value)
-                    }
-                  >
-                    {column.id}
-                  </DropdownMenuCheckboxItem>
-                );
-              })}
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </div>
+      <TableSearch
+        filterInput={filterInput}
+        setFilterInput={setFilterInput}
+        table={table}
+      />
       <div className="rounded-md border">
         <Table>
           <TableHeader>
@@ -242,7 +111,11 @@ export function TableSection({
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
                   onClick={() => setSelectedLocation(row.original)}
-                  className={`h-24 ${selectedLocation === row.original ? "bg-popover hover:bg-popover" : ""}`}
+                  className={`h-24 ${
+                    selectedLocation === row.original
+                      ? "bg-popover hover:bg-popover"
+                      : ""
+                  }`}
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
@@ -255,14 +128,7 @@ export function TableSection({
                 </TableRow>
               ))
             ) : (
-              <TableRow>
-                <TableCell
-                  colSpan={columns.length}
-                  className="h-24 text-center"
-                >
-                  No results.
-                </TableCell>
-              </TableRow>
+              <TableNoResults />
             )}
           </TableBody>
         </Table>
