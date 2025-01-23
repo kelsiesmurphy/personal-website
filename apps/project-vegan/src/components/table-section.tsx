@@ -31,7 +31,7 @@ import {
   TableHeader,
   TableRow,
 } from "@repo/ui/components/ui/table";
-import { Restaurant } from "@/content/restaurants";
+import { Restaurant } from "@/content/restaurants_mocks";
 
 export const columns: ColumnDef<Restaurant>[] = [
   {
