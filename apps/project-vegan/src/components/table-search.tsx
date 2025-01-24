@@ -15,12 +15,12 @@ export default function TableSearch({
   table,
 }: any) {
   return (
-    <div className="flex items-center py-4 space-x-4">
+    <div className="flex items-center flex-wrap py-4 space-x-4">
       <Input
         placeholder="Filter by name or cuisine..."
         value={filterInput}
         onChange={(event) => setFilterInput(event.target.value)}
-        className="max-w-sm"
+        className="max-w-sm min-w-64"
       />
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
