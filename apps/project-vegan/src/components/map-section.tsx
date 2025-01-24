@@ -49,7 +49,7 @@ export default function MapSection({
       if (!coords) return null;
 
       const veganIcon = document.createElement("img");
-      veganIcon.src = getVeganIcon(restaurant.jRating);
+      veganIcon.src = getVeganIcon(restaurant.jRating, restaurant.cuisine);
       veganIcon.alt = "Vegan Icon";
 
       const marker = new maptilersdk.Marker({
