@@ -8,9 +8,9 @@ import {
 } from "@repo/ui/components/ui/resizable";
 import dynamic from "next/dynamic";
 import { useMemo, useState, useEffect } from "react";
-import { veganRestaurants as testRestaurants } from "@/content/restaurants_mocks";
+import { veganRestaurants as testRestaurants } from "@/content/restaurants_test_data";
 import { ScrollArea } from "@repo/ui/components/ui/scroll-area";
-import { Restaurant } from "@/content/restaurants_mocks";
+import { Restaurant } from "@/content/restaurants_test_data";
 
 export default function Home() {
   const [selectedLocation, setSelectedLocation] = useState<Restaurant | null>(

@@ -1,7 +1,7 @@
 import "@maptiler/sdk/dist/maptiler-sdk.css";
 import * as maptilersdk from "@maptiler/sdk";
 import React, { useRef, useEffect, useMemo } from "react";
-import { Restaurant } from "@/content/restaurants_mocks";
+import { Restaurant } from "@/content/restaurants_test_data";
 import { getVeganIcon, fetchCoordinates } from "@/utils/mapUtils";
 
 export default function MapSection({

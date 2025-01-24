@@ -20,7 +20,7 @@ import {
   TableHeader,
   TableRow,
 } from "@repo/ui/components/ui/table";
-import { Restaurant } from "@/content/restaurants_mocks";
+import { Restaurant } from "@/content/restaurants_test_data";
 import TableSearch from "./table-search";
 import { columns } from "./table-columns";
 import TableNoResults from "./table-no-results";

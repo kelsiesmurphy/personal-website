@@ -1,4 +1,4 @@
-import { Restaurant } from "@/content/restaurants_mocks";
+import { Restaurant } from "@/content/restaurants_test_data";
 import { Button } from "@repo/ui/components/ui/button";
 import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown, Map } from "lucide-react";
