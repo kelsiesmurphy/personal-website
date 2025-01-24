@@ -71,7 +71,7 @@ export const getVeganIcon = (rating: number, cuisineType: string): string => {
       <circle cx="20" cy="14" r="10" fill="white"/>
       
       <!-- Emoji Overlay -->
-      <text x="20" y="19" fill="black" font-size="14" text-anchor="middle">${emoji}</text>
+      <text x="20.5" y="19" fill="black" font-size="14" text-anchor="middle">${emoji}</text>
     </svg>
   `;
 
