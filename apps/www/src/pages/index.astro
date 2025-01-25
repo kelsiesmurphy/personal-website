@@ -1,6 +1,5 @@
 ---
 import Name from "../components/react/name";
-import ProjectNavMobile from "../components/react/project-navigation-mobile";
 import SocialLinks from "../components/react/social-links";
 import Layout from "../layouts/Layout.astro";
 ---
@@ -10,7 +9,7 @@ import Layout from "../layouts/Layout.astro";
     <div
       class="hidden sm:flex items-center justify-between h-28 flex-wrap gap-12"
     >
-      <Name client:only />
+      <Name client:load />
     </div>
     <div
       class="flex sm:hidden items-center justify-between h-28 flex-wrap gap-12"

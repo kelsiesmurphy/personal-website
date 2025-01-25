@@ -6,6 +6,7 @@
     url("/fonts/ttf/nord-thin.ttf") format("truetype");
   font-weight: 100;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -15,6 +16,7 @@
     url("/fonts/ttf/nord-thinitalic.ttf") format("truetype");
   font-weight: 100;
   font-style: italic;
+  font-display: swap;
 }
 
 /* Extra Light (200) */
@@ -25,6 +27,7 @@
     url("/fonts/ttf/nord-light.ttf") format("truetype");
   font-weight: 200;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -34,6 +37,7 @@
     url("/fonts/ttf/nord-lightitalic.ttf") format("truetype");
   font-weight: 200;
   font-style: italic;
+  font-display: swap;
 }
 
 /* Regular/Normal (400) */
@@ -44,6 +48,7 @@
     url("/fonts/ttf/nord-regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -53,6 +58,7 @@
     url("/fonts/ttf/nord-italic.ttf") format("truetype");
   font-weight: 400;
   font-style: italic;
+  font-display: swap;
 }
 
 /* Medium (500) */
@@ -63,6 +69,7 @@
     url("/fonts/ttf/nord-medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -72,6 +79,7 @@
     url("/fonts/ttf/nord-mediumitalic.ttf") format("truetype");
   font-weight: 500;
   font-style: italic;
+  font-display: swap;
 }
 
 /* Semi Bold (600) */
@@ -82,6 +90,7 @@
     url("/fonts/ttf/nord-book.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -91,6 +100,7 @@
     url("/fonts/ttf/nord-bookitalic.ttf") format("truetype");
   font-weight: 600;
   font-style: italic;
+  font-display: swap;
 }
 
 /* Bold (700) */
@@ -101,6 +111,7 @@
     url("/fonts/ttf/nord-bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -110,6 +121,7 @@
     url("/fonts/ttf/nord-bolditalic.ttf") format("truetype");
   font-weight: 700;
   font-style: italic;
+  font-display: swap;
 }
 
 /* Extra Bold (800) */
@@ -121,6 +133,7 @@
     url("/fonts/ttf/nord-black.ttf") format("truetype");
   font-weight: 800;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -130,6 +143,7 @@
     url("/fonts/ttf/nord-blackitalic.ttf") format("truetype");
   font-weight: 800;
   font-style: italic;
+  font-display: swap;
 }
 
 /* Black (900) */
@@ -140,6 +154,7 @@
     url("/fonts/ttf/nord-black.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -149,4 +164,5 @@
     url("/fonts/ttf/nord-blackitalic.ttf") format("truetype");
   font-weight: 900;
   font-style: italic;
+  font-display: swap;
 }

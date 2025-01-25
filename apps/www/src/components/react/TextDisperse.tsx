@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { disperse } from "./anim";
 import type { JSX } from "react/jsx-runtime";
 
-export default function TextDisperse({ children, setBackground }: any) {
+export default function TextDisperse({ children }: any) {
   const [isAnimated, setIsAnimated] = useState(false);
 
   const getChars = (element: { props: { children: any } }) => {
@@ -32,11 +32,9 @@ export default function TextDisperse({ children, setBackground }: any) {
   };
 
   const manageMouseEnter = () => {
-    setBackground(true);
     setIsAnimated(true);
   };
   const manageMouseLeave = () => {
-    setBackground(false);
     setIsAnimated(false);
   };
 
