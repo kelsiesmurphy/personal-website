@@ -6,6 +6,7 @@ import instagram from "react-useanimations/lib/instagram";
 import type { Animation } from "react-useanimations/utils";
 import BlueskyIcon from "./bluesky-icon";
 import type { JSX } from "react";
+import GoodReadsIcon from "./goodreads-icon";
 
 type SocialItem = {
   label: string;
@@ -25,13 +26,6 @@ export default function SocialLinks() {
       icon: BlueskyIcon,
     },
     {
-      label: "instagram",
-      href: "https://www.instagram.com/kelsiesmurphy/",
-      animation: instagram,
-      loop: false,
-      icon: undefined,
-    },
-    {
       label: "linkedin",
       href: "https://www.linkedin.com/in/kelsiesmurphy/",
       animation: linkedin,
@@ -44,6 +38,20 @@ export default function SocialLinks() {
       animation: github,
       loop: true,
       icon: undefined,
+    },
+    {
+      label: "instagram",
+      href: "https://www.instagram.com/kelsiesmurphy/",
+      animation: instagram,
+      loop: false,
+      icon: undefined,
+    },
+    {
+      label: "goodreads",
+      href: "https://www.goodreads.com/user/show/194615481-kelsie-murphy",
+      animation: undefined,
+      loop: true,
+      icon: GoodReadsIcon,
     },
   ];
 
@@ -65,7 +73,7 @@ export default function SocialLinks() {
                   />
                 ) : (
                   socialItem.icon && (
-                    <div className="hover:animate-ping">
+                    <div className="hover:animate-ping size-6 flex items-center justify-center">
                       <socialItem.icon />
                     </div>
                   )
