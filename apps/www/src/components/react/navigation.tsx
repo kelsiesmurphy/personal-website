@@ -4,7 +4,6 @@ export default function Navigation() {
   const navList = [
     { label: "home", href: "/" },
     { label: "about", href: "/about" },
-    { label: "writing", href: "/writing" },
     { label: "projects", href: "/projects" },
   ];
 

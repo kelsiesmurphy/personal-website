@@ -3,6 +3,6 @@
 import UseAnimations from "react-useanimations";
 import type { Animation } from "react-useanimations/utils";
 
-export default function AnimatedIcon({ animation }: { animation: Animation }) {
-  return <UseAnimations loop animation={animation} />;
+export default function AnimatedIcon({ animation, loop }: { animation: Animation; loop: boolean }) {
+  return <UseAnimations loop={loop} animation={animation} />;
 }

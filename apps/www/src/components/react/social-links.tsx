@@ -2,15 +2,16 @@ import { Button } from "@repo/ui/components/ui/button";
 import AnimatedIcon from "./animated-icon";
 import linkedin from "react-useanimations/lib/linkedin";
 import github from "react-useanimations/lib/github";
+import instagram from "react-useanimations/lib/instagram";
 import type { Animation } from "react-useanimations/utils";
 import BlueskyIcon from "./bluesky-icon";
-import RSSIcon from "./rss-icon";
 import type { JSX } from "react";
 
 type SocialItem = {
   label: string;
   href: string;
   animation: Animation | undefined;
+  loop: boolean;
   icon?: () => JSX.Element | undefined;
 };
 
@@ -20,25 +21,29 @@ export default function SocialLinks() {
       label: "bluesky",
       href: "https://bsky.app/profile/kelsiesmurphy.com",
       animation: undefined,
+      loop: false,
       icon: BlueskyIcon,
+    },
+    {
+      label: "instagram",
+      href: "https://www.instagram.com/kelsiesmurphy/",
+      animation: instagram,
+      loop: false,
+      icon: undefined,
     },
     {
       label: "linkedin",
       href: "https://www.linkedin.com/in/kelsiesmurphy/",
       animation: linkedin,
+      loop: true,
       icon: undefined,
     },
     {
       label: "github",
       href: "https://github.com/kelsiesmurphy",
       animation: github,
+      loop: true,
       icon: undefined,
-    },
-    {
-      label: "rss",
-      href: "https://kelsiesmurphy.com/rss.xml",
-      animation: undefined,
-      icon: RSSIcon,
     },
   ];
 
@@ -54,7 +59,10 @@ export default function SocialLinks() {
                 href={socialItem.href}
               >
                 {socialItem.animation ? (
-                  <AnimatedIcon animation={socialItem.animation} />
+                  <AnimatedIcon
+                    animation={socialItem.animation}
+                    loop={socialItem.loop}
+                  />
                 ) : (
                   socialItem.icon && (
                     <div className="hover:animate-ping">
