@@ -21,6 +21,7 @@ const config = {
     extend: {
       fontFamily: {
         nord: ['"Nord"', '"Nord override"', 'sans-serif', ...defaultTheme.fontFamily.sans],
+        citrusShore: ['"Citrus Shore"', 'sans-serif', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         border: "hsl(var(--border))",

@@ -107,3 +107,14 @@
   clip: auto;
   white-space: normal;
 }
+
+/* Aceternity UI tabs element */
+.no-visible-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.no-visible-scrollbar::-webkit-scrollbar {
+  display: none;
+}

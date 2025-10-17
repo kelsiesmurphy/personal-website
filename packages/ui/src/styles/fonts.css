@@ -166,3 +166,20 @@
   font-style: italic;
   font-display: swap;
 }
+@font-face {
+  font-family: "Nord";
+  src:
+    url("/fonts/otf/nord-blackitalic.otf") format("opentype"),
+    url("/fonts/ttf/nord-blackitalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Citrus Shore";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/citrusshore-webfont.woff2") format("woff2");
+}

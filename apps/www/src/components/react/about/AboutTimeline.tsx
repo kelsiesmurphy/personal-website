@@ -3,7 +3,7 @@ const AboutTimeline = () => {
     {
       sortOrder: 0,
       date: "September 2015 - November 2019",
-      title: "Music Degree",
+      title: "BMus(Hons) with Education",
       description:
         "Studied music with education at the University of Aberdeen. I play clarinet, saxophone 🎷 and piano! 🎹",
     },
