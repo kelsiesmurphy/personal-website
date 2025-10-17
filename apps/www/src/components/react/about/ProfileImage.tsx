@@ -8,7 +8,7 @@ export default function ProfileImage() {
       onClick={() => setToggleDisguise(!toggleDisguise)}
     >
       <img
-        src="/about/kelsie-murphy.jpg"
+        src="/about/kelsie-murphy.jpeg"
         className="relative aspect-square object-cover w-28 rounded-full"
       />
       {toggleDisguise && (

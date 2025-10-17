@@ -35,7 +35,7 @@ import Navigation from "../components/react/navigation";
 
     <main class="flex justify-center p-6">
       <section class="flex-1 max-w-2xl space-y-16">
-        <Navigation />
+        <Navigation path={Astro.url.pathname} />
         <div id="main-content">
           <slot />
         </div>
